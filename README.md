@@ -99,9 +99,9 @@ Install Nvidia drivers by following the steps below in a terminal:
 ## Media Codecs
 * Install these to get proper multimedia playback.
 ````
-sudo dnf4 group install multimedia
+sudo dnf4 group install multimedia --exclude=libheif-freeworld --exclude=obs-studio-freeworld # Exclude packages currently unavailable/incompatible on Fedora 44.
 sudo dnf swap 'ffmpeg-free' 'ffmpeg' --allowerasing # Switch to full FFMPEG.
-sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin # Installs gstreamer components. Required if you use Gnome Videos and other dependent applications.
+sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin --exclude=libheif-freeworld --exclude=obs-studio-freeworld # Update multimedia/GStreamer components while avoiding the same conflicts.
 sudo dnf group install -y sound-and-video # Installs useful Sound and Video complementary packages.
 ````
 
