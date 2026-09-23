@@ -78,8 +78,6 @@ Install Nvidia drivers by following the steps below in a terminal:
  * Wait for atleast 5 mins before rebooting, to let the kernel module get built. Once its built, the command above would output the driver version instead of an error.
  * `modinfo -F version nvidia # check if kmod is built` 
  * Reboot once its built.
- * Congrats now you have working nvidia drivers setup with secure boot enabled!
-
 * Congrats now you have working Nvidia drivers!
 </details>
 
