@@ -8,8 +8,8 @@ Things to do after installing Fedora 44
 * Enable third party repositories by pasting the following into the terminal: 
 * `sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm`
 * also while you're at it, install app-stream metadata by:
-* `sudo dnf group upgrade core`
-* `sudo dnf group install core`
+* `sudo dnf install -y rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data`
+
   
 
 ## Update 
@@ -99,9 +99,8 @@ Install Nvidia drivers by following the steps below in a terminal:
 ## Media Codecs
 * Install these to get proper multimedia playback.
 ````
-sudo dnf group install multimedia --exclude=libheif-freeworld --exclude=obs-studio-freeworld # Exclude packages currently unavailable/incompatible on Fedora 44.
 sudo dnf swap 'ffmpeg-free' 'ffmpeg' --allowerasing # Switch to full FFMPEG.
-sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin --exclude=libheif-freeworld --exclude=obs-studio-freeworld # Update multimedia/GStreamer components while avoiding the same conflicts.
+sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin --exclude=libheif-freeworld --exclude=obs-studio-freeworld # Update multimedia/GStreamer components while excluding currently broken broken packages.
 sudo dnf group install -y sound-and-video # Installs useful Sound and Video complementary packages.
 ````
 
