@@ -98,9 +98,10 @@ Install Nvidia drivers by following the steps below in a terminal:
 
 ## Media Codecs
 * Install these to get proper multimedia playback.
+* If you get package conflict errors here, RPM Fusion is temporarily out of sync with Fedora. This usually resolves within a few days, so wait and run the commands again.
 ````
 sudo dnf swap 'ffmpeg-free' 'ffmpeg' --allowerasing # Switch to full FFMPEG.
-sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin --exclude=libheif-freeworld --exclude=obs-studio-freeworld # Update multimedia/GStreamer components while excluding currently broken broken packages.
+sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin # Installs gstreamer components. Required if you use Gnome Videos and other dependent applications.
 sudo dnf group install -y sound-and-video # Installs useful Sound and Video complementary packages.
 ````
 
